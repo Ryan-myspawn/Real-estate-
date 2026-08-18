@@ -1,6 +1,4 @@
-// Rebrand the whole site here.
-export const BRAND = "Haven";
-export const TAGLINE = "A boutique brokerage for people who hate being sold to.";
-export const CITY = "Austin, TX";
-export const PHONE = "(512) 555-0148";
-export const EMAIL = "hello@example.com";
+export const BRAND = "manidvipa";
+export const SUB = "the pearl island";
+export const DEVELOPER = "D R Developers · Dreamz Reality";
+export const LOCATION = "Residential villa plots · Mavallipura, Bangalore North";
