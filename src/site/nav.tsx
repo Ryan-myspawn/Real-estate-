@@ -6,6 +6,7 @@ const LINKS = [
   { href: "#residences", label: "Residences" },
   { href: "#walkthrough", label: "Walkthrough" },
   { href: "#amenities", label: "Amenities" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#location", label: "Location" },
 ];
 

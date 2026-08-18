@@ -115,8 +115,8 @@ export default function Hero() {
       {/* Architectural plate */}
       <div ref={bgRef} className="absolute -inset-6 will-change-transform">
         <img
-          src="/stills/a-hero.jpg"
-          alt="Manidvipa Model A+ concept villa at dusk"
+          src="/stills/int-terrace.jpg"
+          alt="Manidvipa roof terrace at dusk — string lights over planted decks and the Bangalore North treeline"
           className="kenburns grade h-full w-full object-cover"
         />
         {/* Dusk grading */}

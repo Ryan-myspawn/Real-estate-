@@ -4,6 +4,7 @@ import Hero from "./site/hero";
 import {
   Amenities,
   Footer,
+  Gallery,
   Intro,
   LocationSection,
   Register,
@@ -37,6 +38,7 @@ export default function App() {
         <Residences onWalk={walkModel} />
         <Walkthrough model={model} setModel={setModel} />
         <Amenities />
+        <Gallery />
         <LocationSection />
         <Register />
         <Footer />

@@ -130,8 +130,8 @@ export function Vision() {
           <Reveal clip>
             <div className="group relative overflow-hidden rounded-sm">
               <img
-                src="/stills/a-living.jpg"
-                alt="Cutaway view of the Model A+ great room"
+                src="/stills/int-great-room.jpg"
+                alt="The Model A+ great room — open-plan living and dining onto the garden"
                 loading="lazy"
                 className="grade aspect-[16/10] w-full object-cover transition-transform duration-[1.6s] ease-lux group-hover:scale-[1.04]"
               />
@@ -145,8 +145,8 @@ export function Vision() {
             <Reveal clip delay={150}>
               <div className="group relative overflow-hidden rounded-sm">
                 <img
-                  src="/stills/a-kitchen.jpg"
-                  alt="Model A+ island kitchen and dining"
+                  src="/stills/int-kitchen.jpg"
+                  alt="Island kitchen in stone and light oak"
                   loading="lazy"
                   className="grade aspect-square w-full object-cover transition-transform duration-[1.6s] ease-lux group-hover:scale-[1.05]"
                 />
@@ -159,14 +159,14 @@ export function Vision() {
             <Reveal clip delay={280}>
               <div className="group relative overflow-hidden rounded-sm">
                 <img
-                  src="/stills/a-roofdeck.jpg"
-                  alt="Model A+ pergola roof deck"
+                  src="/stills/int-balcony.jpg"
+                  alt="Balcony lounge over the treeline"
                   loading="lazy"
                   className="grade aspect-square w-full object-cover transition-transform duration-[1.6s] ease-lux group-hover:scale-[1.05]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-char/35 to-transparent opacity-60" />
                 <p className="absolute bottom-3 left-4 text-[10px] uppercase tracking-micro text-bone/90">
-                  Roof deck
+                  Balcony lounge
                 </p>
               </div>
             </Reveal>
@@ -317,8 +317,8 @@ export function Amenities() {
       {/* Full-bleed cinematic band */}
       <section className="relative overflow-hidden bg-char">
         <img
-          src="/stills/a-aerial.jpg"
-          alt="Aerial view over the Model A+ villa and pool court"
+          src="/stills/int-sunset-dining.jpg"
+          alt="The dining room at dusk, terrace beyond"
           loading="lazy"
           className="grade h-[64vh] w-full object-cover opacity-70"
         />
@@ -337,7 +337,74 @@ export function Amenities() {
   );
 }
 
-/* ————— 07 · Location ————— */
+
+/* ————— 07 · Gallery ————— */
+const GALLERY = [
+  { src: "/stills/gal-lounge.jpg", label: "The formal lounge", note: "Poolside face" },
+  { src: "/stills/gal-dark-kitchen.jpg", label: "The chef's kitchen", note: "Black, marble & brass" },
+  { src: "/stills/gal-master.jpg", label: "The master suite", note: "Dressing room beyond" },
+  { src: "/stills/gal-bath.jpg", label: "The master bath", note: "Book-matched marble" },
+  { src: "/stills/gal-pooja.jpg", label: "The pooja room", note: "Carved teak & brass" },
+  { src: "/stills/gal-kids.jpg", label: "The children's room", note: "Two beds, one mural" },
+  { src: "/stills/gal-bedroom.jpg", label: "The guest bedroom", note: "Backlit headboard wall" },
+  { src: "/stills/gal-foyer.jpg", label: "The entrance foyer", note: "Walnut & marble" },
+  { src: "/stills/gal-family.jpg", label: "The family room", note: "Timber-coffered ceiling" },
+];
+
+export function Gallery() {
+  return (
+    <section id="gallery" className="overflow-hidden bg-char py-28 sm:py-36">
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal>
+          <Kicker>Gallery</Kicker>
+        </Reveal>
+        <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
+          <Reveal delay={120}>
+            <h2 className="font-display text-4xl font-light leading-[1.1] text-bone sm:text-5xl">
+              Inside the
+              <br />
+              <span className="italic text-champ">villas.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={240}>
+            <p className="max-w-xs text-[13px] font-light leading-relaxed text-bone/45">
+              Room by room, the finish intent for every Manidvipa home —
+              drag or scroll sideways to wander.
+            </p>
+          </Reveal>
+        </div>
+      </div>
+
+      <Reveal delay={200}>
+        <div
+          className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-6 sm:px-[max(1.5rem,calc((100vw-72rem)/2))]"
+          style={{ scrollbarWidth: "thin", scrollbarColor: "#C9B8A0 transparent" }}
+        >
+          {GALLERY.map((g) => (
+            <figure key={g.src} className="group w-[78vw] flex-none snap-center sm:w-[460px]">
+              <div className="relative overflow-hidden rounded-sm">
+                <img
+                  src={g.src}
+                  alt={`${g.label} — ${g.note}`}
+                  loading="lazy"
+                  className="grade aspect-[3/2] w-full object-cover transition-transform duration-[1.8s] ease-lux group-hover:scale-[1.05]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-char/45 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-champ transition-transform duration-700 ease-lux group-hover:scale-x-100" />
+              </div>
+              <figcaption className="mt-4 flex items-baseline justify-between border-t border-champ/12 pt-3">
+                <span className="font-display text-lg font-light text-bone/90">{g.label}</span>
+                <span className="text-[10px] uppercase tracking-micro text-champ/70">{g.note}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
+/* ————— 08 · Location ————— */
 export function LocationSection() {
   return (
     <section id="location" className="bg-char-soft px-6 py-28 sm:py-36">
@@ -603,10 +670,10 @@ export function Footer() {
         </div>
         <div className="hairline mt-10" />
         <p className="mt-6 text-[11px] font-light leading-[1.8] text-bone/30">
-          RERA: {RERA} · BDA approved layout. The 3D walkthrough and all villa
-          imagery are artistic, indicative furnishing concepts — not to scale;
-          final plot dimensions and specifications per agreement. Peripheral
-          Ring Road shown as proposed.
+          RERA: {RERA} · BDA approved layout. The 3D walkthrough and all villa and
+          interior imagery are artistic, AI-assisted indicative concepts — not
+          to scale; final plot dimensions and specifications per agreement.
+          Peripheral Ring Road shown as proposed.
         </p>
       </div>
     </footer>

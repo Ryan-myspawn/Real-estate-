@@ -89,8 +89,8 @@ export const MODELS = {
     signature: "Pergola roof deck & private pool court",
     story:
       "Double-height massing in pearl render. A great room across the full garden face, an island kitchen that hosts, three bedrooms above — and a roof deck above the treeline for Bangalore evenings.",
-    still: "/stills/a-hero.jpg",
-    interior: "/stills/a-living.jpg",
+    still: "/stills/int-stair-hall.jpg",
+    interior: "/stills/int-great-room.jpg",
   },
   B: {
     name: "Model B",
@@ -101,8 +101,8 @@ export const MODELS = {
     signature: "Timber pergola pavilion off the lawn",
     story:
       "One clean volume, one gold entrance, one glazed garden face. Every square foot furnished and working — and a garden pavilion where the roof deck would be, at ground level under open sky.",
-    still: "/stills/b-hero.jpg",
-    interior: "/stills/b-pavilion.jpg",
+    still: "/stills/int-garden-dining.jpg",
+    interior: "/stills/int-balcony.jpg",
   },
 } as const;
 
