@@ -15,20 +15,20 @@ export default function Walkthrough({
   const { ref, inView } = useInView<HTMLDivElement>("600px 0px");
 
   return (
-    <section id="walkthrough" className="bg-char px-0 pb-28 pt-28 sm:pb-36 sm:pt-36">
+    <section id="plan" className="bg-char px-0 pb-28 pt-28 sm:pb-36 sm:pt-36">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-micro text-champ">
             <span className="h-px w-10 bg-champ/40" />
-            The 3D walkthrough
+            The plan, in 3D
           </p>
         </Reveal>
         <div className="mt-8 flex flex-wrap items-end justify-between gap-8">
           <Reveal delay={120}>
             <h2 className="font-display text-4xl font-light leading-[1.1] text-bone sm:text-5xl">
-              Walk before
+              See how the rooms
               <br />
-              you <span className="italic text-champ">build.</span>
+              <span className="italic text-champ">sit together.</span>
             </h2>
           </Reveal>
           <Reveal delay={240}>
@@ -52,8 +52,10 @@ export default function Walkthrough({
         </div>
         <Reveal delay={320}>
           <p className="mt-6 max-w-md text-[13px] font-light leading-relaxed text-bone/45">
-            Scroll inside the frame — the villa opens itself one floor at a
-            time, from the entrance to the {model === "A" ? "roof deck" : "garden pavilion"}.
+            An interactive dollhouse of the plan — scroll inside the frame and
+            the shell fades away floor by floor, from the entrance to the
+            {model === "A" ? " roof deck" : " garden pavilion"}. Finishes are
+            indicative; the photography above sets the intent.
           </p>
         </Reveal>
       </div>

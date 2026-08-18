@@ -12,6 +12,7 @@ import {
   Vision,
 } from "./site/sections";
 import Walkthrough from "./site/walkthrough";
+import EnterVilla from "./site/enter";
 import { Cursor, Grain } from "./site/fx";
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
         </div>
         <Vision />
         <Residences onWalk={walkModel} />
+        <EnterVilla model={model} setModel={setModel} />
         <Walkthrough model={model} setModel={setModel} />
         <Amenities />
         <Gallery />

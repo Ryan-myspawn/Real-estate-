@@ -1,7 +1,8 @@
-import { Suspense, useMemo, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Scroll, ScrollControls, useScroll } from "@react-three/drei";
+import { Suspense, useEffect, useMemo, useRef } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { ContactShadows, Scroll, ScrollControls, useScroll } from "@react-three/drei";
 import * as THREE from "three";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import Villa from "./Villa";
 import { AMENITIES, PLOTS, RERA, CONTACTS, ADDRESS } from "../data";
 
@@ -260,24 +261,61 @@ function InfoPages() {
   );
 }
 
+/** Neutral studio environment for PBR reflections — fully procedural, no network. */
+function Env() {
+  const gl = useThree((s) => s.gl);
+  const scene = useThree((s) => s.scene);
+  useEffect(() => {
+    const pmrem = new THREE.PMREMGenerator(gl);
+    const env = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environment = env;
+    scene.environmentIntensity = 0.55;
+    return () => {
+      scene.environment = null;
+      env.dispose();
+      pmrem.dispose();
+    };
+  }, [gl, scene]);
+  return null;
+}
+
 export default function Experience({ variant }: { variant: V }) {
   const copy = variant === "A" ? COPY_A : COPY_B;
   return (
     <div className="h-[86svh] w-full">
       <Canvas
         shadows
+        dpr={[1, 2]}
+        gl={{ antialias: true, toneMappingExposure: 1.12 }}
         camera={{ fov: 35, position: variant === "A" ? [16, 9, 19] : [-12, 7.5, 15] }}
       >
         <color attach="background" args={["#EFE8DB"]} />
         <fog attach="fog" args={["#EFE8DB", 70, 170]} />
-        <ambientLight intensity={0.85} />
+        <Env />
+        <hemisphereLight args={["#EAE4D8", "#77875F", 0.5]} />
         <directionalLight
-          position={[14, 18, 8]}
-          intensity={1.35}
+          position={[18, 24, 10]}
+          intensity={2.1}
+          color="#FFF4E0"
           castShadow
           shadow-mapSize={[2048, 2048]}
+          shadow-bias={-0.0004}
+          shadow-camera-left={-18}
+          shadow-camera-right={18}
+          shadow-camera-top={18}
+          shadow-camera-bottom={-18}
+          shadow-camera-far={70}
         />
-        <directionalLight position={[-10, 8, -6]} intensity={0.3} />
+        <directionalLight position={[-12, 10, -8]} intensity={0.35} color="#DCE4EC" />
+        <ContactShadows
+          position={[0, 0.005, 0]}
+          opacity={0.42}
+          scale={44}
+          blur={2.6}
+          far={12}
+          resolution={512}
+          frames={1}
+        />
         <Suspense fallback={null}>
           <ScrollControls pages={8} damping={0.22}>
             <Rig variant={variant} />

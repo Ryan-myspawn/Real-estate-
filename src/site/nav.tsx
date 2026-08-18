@@ -4,7 +4,7 @@ const LINKS = [
   { href: "#story", label: "The Island" },
   { href: "#vision", label: "Vision" },
   { href: "#residences", label: "Residences" },
-  { href: "#walkthrough", label: "Walkthrough" },
+  { href: "#walkthrough", label: "Walk the villa" },
   { href: "#amenities", label: "Amenities" },
   { href: "#gallery", label: "Gallery" },
   { href: "#location", label: "Location" },

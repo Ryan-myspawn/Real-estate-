@@ -112,6 +112,17 @@ body {
   }
 }
 
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Cinematic image grade */
 .grade {
   filter: saturate(0.82) contrast(1.05) brightness(0.96) sepia(0.09);

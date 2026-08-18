@@ -175,7 +175,7 @@ export default function Hero() {
             href="#walkthrough"
             className="group inline-flex items-center gap-3 rounded-full bg-bone px-7 py-3.5 text-[13px] font-medium tracking-wide text-char transition-all duration-500 ease-lux hover:bg-champ"
           >
-            Walk the villa in 3D
+            Walk the villa
             <span className="inline-block transition-transform duration-500 ease-lux group-hover:translate-x-1">
               →
             </span>
