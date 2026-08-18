@@ -104,19 +104,19 @@ function Panel({
   right?: boolean;
 }) {
   return (
-    <section className="flex h-screen items-center px-6 sm:px-14">
+    <section className="flex h-[86svh] items-center px-6 sm:px-14">
       <div
-        className={`max-w-md rounded-2xl border border-ink/10 bg-cream/90 p-7 shadow-[0_24px_70px_-30px_rgba(62,47,35,0.5)] backdrop-blur ${
+        className={`max-w-md rounded-2xl border border-char/10 bg-bone/92 p-7 shadow-[0_24px_70px_-30px_rgba(62,47,35,0.5)] backdrop-blur ${
           right ? "ml-auto" : ""
         }`}
       >
-        <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brass">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-bronze">
           {kicker}
         </p>
-        <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-ink">
+        <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-char">
           {title}
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-ink-mute">{body}</p>
+        <p className="mt-3 text-sm leading-relaxed text-char/50">{body}</p>
       </div>
     </section>
   );
@@ -212,12 +212,12 @@ function InfoPages() {
   return (
     <>
       {/* Amenities page (stage 6 area) */}
-      <section className="flex h-screen items-center px-6 sm:px-14">
-        <div className="ml-auto w-full max-w-lg rounded-2xl border border-ink/10 bg-cream/95 p-7 shadow-xl backdrop-blur">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brass">
+      <section className="flex h-[86svh] items-center px-6 sm:px-14">
+        <div className="ml-auto w-full max-w-lg rounded-2xl border border-char/10 bg-bone/95 p-7 shadow-xl backdrop-blur">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-bronze">
             Amenities & facilities
           </p>
-          <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5 text-[13px] text-ink-soft">
+          <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5 text-[13px] text-char/70">
             {AMENITIES.map((a) => (
               <span key={a}>· {a}</span>
             ))}
@@ -225,30 +225,30 @@ function InfoPages() {
         </div>
       </section>
       {/* Plots + contact page (stage 7 area) */}
-      <section className="flex h-screen items-center px-6 sm:px-14">
-        <div className="w-full max-w-lg rounded-2xl border border-ink/10 bg-cream/95 p-7 shadow-xl backdrop-blur">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brass">
+      <section className="flex h-[86svh] items-center px-6 sm:px-14">
+        <div className="w-full max-w-lg rounded-2xl border border-char/10 bg-bone/95 p-7 shadow-xl backdrop-blur">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-bronze">
             Surface & plots
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {PLOTS.map((p) => (
               <span
                 key={p}
-                className="rounded-full border border-ink/15 px-3 py-1 text-sm text-ink-soft"
+                className="rounded-full border border-char/15 px-3 py-1 text-sm text-char/70"
               >
                 {p}
               </span>
             ))}
           </div>
-          <div className="mt-6 border-t border-ink/10 pt-5">
-            <p className="font-display text-2xl font-semibold text-ink">
+          <div className="mt-6 border-t border-char/10 pt-5">
+            <p className="font-display text-2xl font-semibold text-char">
               Book a site visit
             </p>
-            <p className="mt-2 text-sm text-ink-mute">{ADDRESS}</p>
-            <p className="mt-2 text-sm font-medium text-ink-soft">
+            <p className="mt-2 text-sm text-char/50">{ADDRESS}</p>
+            <p className="mt-2 text-sm font-medium text-char/70">
               {CONTACTS.join(" · ")}
             </p>
-            <p className="mt-4 text-[11px] leading-relaxed text-ink-mute">
+            <p className="mt-4 text-[11px] leading-relaxed text-char/50">
               RERA: {RERA} · BDA approved. 3D visualization is an artistic,
               indicative furnishing concept — not to scale; final specifications
               per agreement.
@@ -263,7 +263,7 @@ function InfoPages() {
 export default function Experience({ variant }: { variant: V }) {
   const copy = variant === "A" ? COPY_A : COPY_B;
   return (
-    <div className="h-screen w-full">
+    <div className="h-[86svh] w-full">
       <Canvas
         shadows
         camera={{ fov: 35, position: variant === "A" ? [16, 9, 19] : [-12, 7.5, 15] }}

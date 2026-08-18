@@ -3,5 +3,122 @@
 @tailwind utilities;
 
 body {
-  @apply bg-cream text-ink antialiased;
+  @apply bg-char text-bone antialiased;
+  font-feature-settings: "ss01" on, "cv05" on;
+}
+
+::selection {
+  background: #c9b8a0;
+  color: #0f0f0f;
+}
+
+/* Custom cursor — fine pointers only */
+@media (pointer: fine) {
+  html.has-cursor,
+  html.has-cursor a,
+  html.has-cursor button,
+  html.has-cursor input,
+  html.has-cursor textarea,
+  html.has-cursor select,
+  html.has-cursor label {
+    cursor: none;
+  }
+}
+
+/* Reveal system */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rd, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image clip reveal */
+[data-clip] {
+  clip-path: inset(8% 6% 8% 6% round 2px);
+  transition: clip-path 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rd, 0ms);
+}
+[data-clip].is-in {
+  clip-path: inset(0 0 0 0 round 2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-clip] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hero slow drift */
+@media (prefers-reduced-motion: no-preference) {
+  .kenburns {
+    animation: kenburns 38s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns {
+    from {
+      transform: scale(1.06) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.14) translate3d(-1.4%, -1.8%, 0);
+    }
+  }
+  .pulse-ring {
+    animation: pulsering 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  @keyframes pulsering {
+    0% {
+      transform: scale(0.5);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+  .scroll-cue {
+    animation: scrollcue 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  @keyframes scrollcue {
+    0% {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    45% {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+    55% {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+    100% {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+  }
+}
+
+/* Cinematic image grade */
+.grade {
+  filter: saturate(0.82) contrast(1.05) brightness(0.96) sepia(0.09);
+}
+
+/* Fine hairline */
+.hairline {
+  background: linear-gradient(90deg, transparent, rgba(201, 184, 160, 0.45), transparent);
+  height: 1px;
 }
